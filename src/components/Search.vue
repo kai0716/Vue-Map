@@ -54,6 +54,10 @@ export default {
                 this.$emit("address-selected", addressObj);
                 this.$refs.address.$el.blur();
                 this.address = "";
+                this.$nextTick(() => {
+                    this.$parent.getTimezone(addressObj.lat, addressObj.lng);// Call getTimeAndTimezone method in the parent component
+                    this.$parent.getTime();
+                });
             }
             this.$refs.address.clear();
 

@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@fawmi/vue-google-maps": "^0.9.79",
+    "axios": "^1.4.0",
     "vue": "^3.3.2",
     "vue-google-autocomplete": "^1.1.4",
     "vue3-geolocation": "^1.0.0",
