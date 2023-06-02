@@ -18,7 +18,7 @@
     <GoogleMap class="map" :center="{ lat: clicked === 1 ? lat : curLat, lng: clicked === 1 ? lng : curLng }" :zoom="zoom">
         <Marker :options="{ position: { lat: curLat, lng: curLng } }" v-if="isLoadingMarker" />
         <CustomMarker :options="markerOptions(addressObj)" v-for="(addressObj, id) in addressList" :key="id">
-            <img :src="lastSearch(id, addressObj) ? '/public/pin.png' : '/public/placeholder.png'" width="50" height="50" />
+            <img :src="lastSearch(id, addressObj) ? '/pin.png' : '/placeholder.png'" width="50" height="50" />
         </CustomMarker>
     </GoogleMap>
     <p class="time">Last Search Local Timezone: <span class="time-data">{{ localTimeZone }}</span> </p>
@@ -143,7 +143,7 @@ export default {
         },
 
         getTimezone(latitude, longitude) {
-            const apiKey = 'AIzaSyBp5MlVQTF7Bs-wuWEEbBCCSoNUe-m0HAU';
+            const apiKey = 'AIzaSyD0o-DDiRUQ3ElVe-235ZEBBDj4_TEqx00';
             const timestamp = Math.floor(Date.now() / 1000);
             const apiUrl = `https://maps.googleapis.com/maps/api/timezone/json?location=${latitude},${longitude}&timestamp=${timestamp}&key=${apiKey}`;
 
