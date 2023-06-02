@@ -7,11 +7,11 @@
     <p id="address">Current Address: {{ address }}</p>
     <div v-if="isLoadingAddress" class="loading-indicator">Loading...</div>
     <div class="icon">
-        <img src="/public/pin.png" :style="{ width: '30px', height: '30px', padding: '0rem 0.5rem' }" />
+        <img src="/pin.png" :style="{ width: '30px', height: '30px', padding: '0rem 0.5rem' }" />
         <figcaption class="icon-purpose">Search History</figcaption>
-        <img src="/public/placeholder.png" :style="{ width: '30px', height: '30px', padding: '0rem 0.5rem' }" />
+        <img src="/placeholder.png" :style="{ width: '30px', height: '30px', padding: '0rem 0.5rem' }" />
         <figcaption class="icon-purpose">Last Search</figcaption>
-        <img src="/public/red.png" :style="{ width: '30px', height: '30px', padding: '0rem 0.5rem' }" />
+        <img src="/red.png" :style="{ width: '30px', height: '30px', padding: '0rem 0.5rem' }" />
         <figcaption class="icon-purpose">Current Location</figcaption>
     </div>
 
@@ -143,7 +143,7 @@ export default {
         },
 
         getTimezone(latitude, longitude) {
-            const apiKey = 'AIzaSyD0o-DDiRUQ3ElVe-235ZEBBDj4_TEqx00';
+            const apiKey = 'AIzaSyBp5MlVQTF7Bs-wuWEEbBCCSoNUe-m0HAU';
             const timestamp = Math.floor(Date.now() / 1000);
             const apiUrl = `https://maps.googleapis.com/maps/api/timezone/json?location=${latitude},${longitude}&timestamp=${timestamp}&key=${apiKey}`;
 
@@ -152,6 +152,7 @@ export default {
                 .then((response) => {
                     const { timeZoneId } = response.data;
                     this.localTimeZone = timeZoneId;
+                    console.log(timeZoneId);
                 })
                 .catch((error) => {
                     console.error(error);
